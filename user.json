@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "system",
+      "email": "system@localhost",
+      "state": "Activado",
+      "firstName": null,
+      "lastName": null,
+      "language": "es",
+      "profile": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+      ],
+      "creation": "01/02/2018 12:09",
+      "modified_user": "system",
+      "modified_date": ""
+    },
+    {
+      "id": 2,
+      "email": "admin@localhost.com",
+      "username": "admin",
+      "state": "Activado",
+      "firstName": "admin",
+      "lastName": "admin",
+      "language": "es",
+      "profile": [
+        "ROLE_USER"
+      ],
+      "creation": "system",
+      "modified_user": null
+    }
+  ]
+}
