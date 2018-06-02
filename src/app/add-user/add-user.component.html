@@ -1,0 +1,83 @@
+
+<div id="wrapper">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation"
+		style="margin-bottom: 0">
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+					<li><a [routerLink]="['/']">Administracion Usuario</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="page-wrapper">
+		<h2 class="text-center">Crear Nuevo Usuario</h2>
+
+		<p>Los campos con (*) son requeridos</p>
+		<form [formGroup]="addForm" (ngSubmit)="onSubmit()"
+			data-toggle="validator" role="form">
+			<p-growl [(value)]="msgs"></p-growl>
+
+			<div class="col-md-12">
+				<div class="col-md-4 form-group">
+					<label for="username" class="control-label">* Usuario</label> <input
+						type="text" class="form-control" id="username"
+						formControlName="username" name="username" required>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<label for="email" class="control-label">* Email</label> <input
+						type="email" class="form-control" name="email"
+						class="form-control" id="email" formControlName="email" required>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<div class="checkbox">
+						<label> <input type="checkbox" name="state" name="state"
+							id="state" value="Activado" formControlName="state" required>
+							Activado
+						</label>
+						<div class="help-block with-errors"></div>
+					</div>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<label for="firstName" class="control-label">Nombres</label> <input
+						type="text" class="form-control" formControlName="firstName"
+						name="firstName" id="firstName">
+				</div>
+
+				<div class="col-md-4 form-group">
+					<label for="lastName" class="control-label">Apellidos</label> <input
+						type="text" class="form-control" formControlName="lastName"
+						name="lastName" id="lastName">
+				</div>
+
+				<div class="col-md-4 form-group">
+					<label class="control-label">Idioma</label> <select
+						class="custom-select" formControlName="language" name="language"
+						id="language">
+						<option selected>Selecciona idioma</option>
+						<option value="es">Espa&ntilde;ol</option>
+						<option value="us">Ingles</option>
+						<option value="fr">Frances</option>
+					</select>
+				</div>
+
+				<div class="col-md-4 form-group">
+					<label class="control-label">Perfiles</label> <select
+						class="custom-select" multiple formControlName="profile"
+						name="profile" id="profile">
+						<option value="ROLE_USER">ROLE_USER</option>
+						<option value="ROLE_ADMIN">ROLE_ADMIN</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+		</form>
+
+	</div>
+</div>

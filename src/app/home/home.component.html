@@ -1,0 +1,64 @@
+<div id="wrapper">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation"
+		style="margin-bottom: 0">
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+					<li><a [routerLink]="['/']">Administracion Usuario</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div id="page-wrapper">
+
+		<h1>Administrador de Usuarios</h1>
+		<h2>Usuarios</h2>
+		<p align="right">
+			<button class="btn btn-primary" (click)="addUser()">
+				<span><i class="fa fa-plus"></i></span> Crear un nuevo usuario
+			</button>
+		</p>
+		<div class="md-12">
+			<p-growl [(value)]="msgs"></p-growl>
+			<p-table [value]="users" [paginator]="true" [rows]="10"
+				[responsive]="true" [resizableColumns]="true"> <ng-template
+				pTemplate="header" let-columns>
+			<tr>
+				<th *ngFor="let col of cols" [pSortableColumn]="col.field"
+					pResizableColumn>{{col.header}} <p-sortIcon
+						[field]="col.field"></p-sortIcon>
+				</th>
+			</tr>
+			</ng-template> <ng-template pTemplate="body" let-user>
+			<tr>
+				<td style="width: 2.25em" class="ui-resizable-column">{{user.id}}</td>
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+				<td><div
+						[ngClass]="{'alert alert-info' : user.state==='Activado','alert alert-dark' : user.state==='K'}"
+						role="alert">{{user.state}}</div></td>
+				<td>{{user.language}}</td>
+				<td>{{user.profile}}</td>
+				<td>{{user.creation}}</td>
+				<td>{{user.modified_user}}</td>
+				<td><button class="btn btn-info" (click)="viewUser(user)">
+						<span><i class="fa fa-eye"></i></span> View
+					</button>
+					<button class="btn btn-primary" (click)="editUser(user)">
+						<span><i class="fa fa-edit"></i></span> Edit
+					</button>
+					<button class="btn btn-danger" (click)="deleteUser(user)">
+						<span><i class="fa fa-times"></i></span> Delete
+					</button></td>
+
+			</tr>
+			</ng-template> <ng-template pTemplate="summary"> {{users?.length}}
+			usuarios registrados </ng-template> </p-table>
+		</div>
+		<p>
+			<a [routerLink]="['/login']">Salir</a>
+		</p>
+
+	</div>
+</div>
+
